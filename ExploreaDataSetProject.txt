@@ -1,0 +1,31 @@
+Explore a DataSet Project:
+I chose the White Wine Dataset to explore.
+
+All coding practices came from the lesson plans in Udacity.
+
+Color came from "Price vs Color vs. Clarity"
+
+Univariate Analysis was practiced on "Lesson 4" RmD File
+
+Bivariante Analysis was practiced on "Lesson 5" RMD File
+
+Removed Code
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+whwn.qualities_by_means <- whwn %>%
+  group_by(quality) %>%
+  summarise(mean_qual_alc = mean(alcohol),
+            mean_qual_fixed_acid = mean(fixed.acidity),
+            mean_qual_cit_acid = mean(citric.acid),
+            mean_qual_vol_acid = mean(volatile.acidity),
+            mean_resid_sug = mean(residual.sugar),
+            mean_chlorides = mean(chlorides),
+            mean_pH = mean(pH),
+            n = n()) %>%
+  ungroup() %>%
+  arrange(quality)
+
+head(whwn.qualities_by_means)
+```
+
+This temporary table should provide a more visual consistent view while losing the detail inbetween.
